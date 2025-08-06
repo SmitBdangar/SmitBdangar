@@ -1,7 +1,7 @@
 # Hi there 👋
+[📍 India]
 
-I'm Smit, a self-taught developer who loves learning programming as a hobby.  
-Currently diving into C#, Unity, and web development.
+Currently sharpening skills in: .NET ecosystem & cloud technologies
 ---
 
 ### 🌱 What I’m Learning
