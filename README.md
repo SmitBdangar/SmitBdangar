@@ -1,5 +1,5 @@
 # Hi there 👋
-[📍 India]
+[INDIA]
 
 Currently sharpening skills in: .NET ecosystem & cloud technologies
                           
