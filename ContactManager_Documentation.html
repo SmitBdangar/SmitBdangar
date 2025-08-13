@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Manager - C# Console Application Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+        }
+        
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .inline-code {
+            background-color: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 90%;
+        }
+        
+        .feature-list {
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .feature-list li {
+            margin: 5px 0;
+        }
+        
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        
+        .header-info {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        @media print {
+            body {
+                font-size: 12px;
+                line-height: 1.4;
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .code-block {
+                font-size: 10px;
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-info"><h1>Contact Manager - Enhanced C</h1><h1>Console Application</h1><br>
+<br>
+<p>#<h1>Overview</h1><br>
+This is a comprehensive contact management system built in C<h1>that evolved from a simple input/output program into a full-featured application with data persistence, validation, and advanced user interface features.</h1></p><br>
+<br>
+<p>#<h1>Features</h1><div class="feature-list"><ul><li><span class="checkmark">✅</span> Complete CRUD operations (Create, Read, Update, Delete)<li><span class="checkmark">✅</span> Advanced input validation with detailed error messages<li><span class="checkmark">✅</span> Data persistence using JSON file storage<li><span class="checkmark">✅</span> Search functionality across all contact fields<li><span class="checkmark">✅</span> Export contacts to formatted text files<li><span class="checkmark">✅</span> Statistics dashboard with contact analytics<li><span class="checkmark">✅</span> Colorful console interface with professional formatting<li><span class="checkmark">✅</span> Timestamp tracking for creation and modification dates<li><span class="checkmark">✅</span> Error handling and data safety features</p><br>
+<br>
+<p>#<h1>System Requirements</h1><li>.NET Framework 4.7.2 or higher / .NET Core 3.0 or higher</li><li>Windows, macOS, or Linux operating system</li><li>Console/Terminal access</li></p><br>
+<br>
+<p>#<h1>Installation & Usage</h1></p><br>
+<br>
+<p>##<h1>Compilation</h1><div class="code-block"><h1>Using .NET CLI</h1><br>
+dotnet new console -n ContactManager<br>
+cd ContactManager<h1>Replace Program.cs with the code below</h1><br>
+dotnet run</div></p><br>
+<br>
+<p>##<h1>Alternative Compilation</h1><div class="code-block"><h1>Using C</h1><h1>compiler directly</h1><br>
+csc Program.cs<br>
+Program.exe</div></p><br>
+<br>
+<p>#<h1>Complete Source Code</h1></p><br>
+<div class="code-block">using System;<br>
+using System.Collections.Generic;<br>
+using System.IO;<br>
+using System.Text.Json;<br>
+using System.Text.RegularExpressions;<br>
+using System.Linq;<br>
+<br>
+<p>namespace ContactManager<br>
+{<br>
+    public class Contact<br>
+    {<br>
+        public string Name { get; set; }<br>
+        public string PhoneNumber { get; set; }<br>
+        public string Message { get; set; }<br>
+        public DateTime CreatedAt { get; set; }<br>
+        public DateTime LastModified { get; set; }</p><br>
+<br>
+<p>public Contact()<br>
+        {<br>
+            CreatedAt = DateTime.Now;<br>
+            LastModified = DateTime.Now;<br>
+        }</p><br>
+<br>
+<p>public Contact(string name, string phoneNumber, string message) : this()<br>
+        {<br>
+            Name = name;<br>
+            PhoneNumber = phoneNumber;<br>
+            Message = message;<br>
+        }<br>
+    }</p><br>
+<br>
+<p>class Program<br>
+    {<br>
+        private static List<Contact> contacts = new List<Contact>();<br>
+        private static string dataFile = "contacts.json";</p><br>
+<br>
+<p>static void Main()<br>
+        {<br>
+            LoadContacts();<br>
+            ShowWelcome();<br>
+            <br>
+            while (true)<br>
+            {<br>
+                ShowMenu();<br>
+                string choice = Console.ReadLine();<br>
+                <br>
+                switch (choice)<br>
+                {<br>
+                    case "1":<br>
+                        AddNewContact();<br>
+                        break;<br>
+                    case "2":<br>
+                        ViewAllContacts();<br>
+                        break;<br>
+                    case "3":<br>
+                        SearchContacts();<br>
+                        break;<br>
+                    case "4":<br>
+                        EditContact();<br>
+                        break;<br>
+                    case "5":<br>
+                        DeleteContact();<br>
+                        break;<br>
+                    case "6":<br>
+                        ShowStatistics();<br>
+                        break;<br>
+                    case "7":<br>
+                        ExportContacts();<br>
+                        break;<br>
+                    case "8":<br>
+                        Console.WriteLine("\n" + new string('=', 50));<br>
+                        Console.ForegroundColor = ConsoleColor.Green;<br>
+                        Console.WriteLine("Thank you for using Contact Manager!");<br>
+                        Console.ResetColor();<br>
+                        Console.WriteLine(new string('=', 50));<br>
+                        SaveContacts();<br>
+                        return;<br>
+                    default:<br>
+                        Console.ForegroundColor = ConsoleColor.Red;<br>
+                        Console.WriteLine("Invalid choice. Please try again.");<br>
+                        Console.ResetColor();<br>
+                        break;<br>
+                }<br>
+                <br>
+                Console.WriteLine("\nPress any key to continue...");<br>
+                Console.ReadKey();<br>
+                Console.Clear();<br>
+            }<br>
+        }</p><br>
+<br>
+<p>static void ShowWelcome()<br>
+        {<br>
+            Console.Clear();<br>
+            Console.ForegroundColor = ConsoleColor.Cyan;<br>
+            Console.WriteLine(new string('=', 60));<br>
+            Console.WriteLine("           WELCOME TO CONTACT MANAGER");<br>
+            Console.WriteLine(new string('=', 60));<br>
+            Console.ResetColor();<br>
+            Console.WriteLine($"Loaded {contacts.Count} existing contacts.");<br>
+            Console.WriteLine();<br>
+        }</p><br>
+<br>
+<p>static void ShowMenu()<br>
+        {<br>
+            Console.WriteLine();<br>
+            Console.ForegroundColor = ConsoleColor.Yellow;<br>
+            Console.WriteLine("╔══════════════════════════════════════╗");<br>
+            Console.WriteLine("║            MAIN MENU                 ║");<br>
+            Console.WriteLine("╠══════════════════════════════════════╣");<br>
+            Console.WriteLine("║ 1. Add New Contact                   ║");<br>
+            Console.WriteLine("║ 2. View All Contacts                 ║");<br>
+            Console.WriteLine("║ 3. Search Contacts                   ║");<br>
+            Console.WriteLine("║ 4. Edit Contact                      ║");<br>
+            Console.WriteLine("║ 5. Delete Contact                    ║");<br>
+            Console.WriteLine("║ 6. Show Statistics                   ║");<br>
+            Console.WriteLine("║ 7. Export Contacts                   ║");<br>
+            Console.WriteLine("║ 8. Exit                              ║");<br>
+            Console.WriteLine("╚══════════════════════════════════════╝");<br>
+            Console.ResetColor();<br>
+            Console.Write("Enter your choice (1-8): ");<br>
+        }</p><br>
+<br>
+<p>static void AddNewContact()<br>
+        {<br>
+            Console.Clear();<br>
+            Console.ForegroundColor = ConsoleColor.Green;<br>
+            Console.WriteLine("=== ADD NEW CONTACT ===");<br>
+            Console.ResetColor();<br>
+            Console.WriteLine();</p><br>
+<br>
+<p>string name = GetValidatedInput("Enter name: ", ValidateName);<br>
+            string phoneNumber = GetValidatedInput("Enter phone number: ", ValidatePhoneNumber);<br>
+            string message = GetValidatedInput("Enter message: ", ValidateMessage);</p><br>
+<br>
+<p>var contact = new Contact(name, phoneNumber, message);<br>
+            contacts.Add(contact);<br>
+            <br>
+            Console.ForegroundColor = ConsoleColor.Green;<br>
+            Console.WriteLine("\n✓ Contact added successfully!");<br>
+            Console.ResetColor();<br>
+            <br>
+            DisplayContact(contact);<br>
+            SaveContacts();<br>
+        }</p><br>
+<br>
+<p>static void ViewAllContacts()<br>
+        {<br>
+            Console.Clear();<br>
+            Console.ForegroundColor = ConsoleColor.Cyan;<br>
+            Console.WriteLine("=== ALL CONTACTS ===");<br>
+            Console.ResetColor();<br>
+            Console.WriteLine();</p><br>
+<br>
+<p>if (contacts.Count == 0)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Yellow;<br>
+                Console.WriteLine("No contacts found. Add some contacts first!");<br>
+                Console.ResetColor();<br>
+                return;<br>
+            }</p><br>
+<br>
+<p>for (int i = 0; i < contacts.Count; i++)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.White;<br>
+                Console.WriteLine($"Contact #{i + 1}:");<br>
+                Console.ResetColor();<br>
+                DisplayContact(contacts[i]);<br>
+                Console.WriteLine(new string('-', 40));<br>
+            }<br>
+        }</p><br>
+<br>
+<p>static void SearchContacts()<br>
+        {<br>
+            Console.Clear();<br>
+            Console.ForegroundColor = ConsoleColor.Magenta;<br>
+            Console.WriteLine("=== SEARCH CONTACTS ===");<br>
+            Console.ResetColor();<br>
+            Console.WriteLine();</p><br>
+<br>
+<p>if (contacts.Count == 0)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Yellow;<br>
+                Console.WriteLine("No contacts to search. Add some contacts first!");<br>
+                Console.ResetColor();<br>
+                return;<br>
+            }</p><br>
+<br>
+<p>Console.Write("Enter search term (name, phone, or message): ");<br>
+            string searchTerm = Console.ReadLine().ToLower();</p><br>
+<br>
+<p>var results = contacts.Where(c => <br>
+                c.Name.ToLower().Contains(searchTerm) ||<br>
+                c.PhoneNumber.Contains(searchTerm) ||<br>
+                c.Message.ToLower().Contains(searchTerm)<br>
+            ).ToList();</p><br>
+<br>
+<p>if (results.Count == 0)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Yellow;<br>
+                Console.WriteLine("No contacts found matching your search.");<br>
+                Console.ResetColor();<br>
+                return;<br>
+            }</p><br>
+<br>
+<p>Console.ForegroundColor = ConsoleColor.Green;<br>
+            Console.WriteLine($"\nFound {results.Count} contact(s):");<br>
+            Console.ResetColor();<br>
+            <br>
+            for (int i = 0; i < results.Count; i++)<br>
+            {<br>
+                Console.WriteLine($"\nResult #{i + 1}:");<br>
+                DisplayContact(results[i]);<br>
+            }<br>
+        }</p><br>
+<br>
+<p>static void EditContact()<br>
+        {<br>
+            Console.Clear();<br>
+            Console.ForegroundColor = ConsoleColor.Yellow;<br>
+            Console.WriteLine("=== EDIT CONTACT ===");<br>
+            Console.ResetColor();<br>
+            Console.WriteLine();</p><br>
+<br>
+<p>if (contacts.Count == 0)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Yellow;<br>
+                Console.WriteLine("No contacts to edit. Add some contacts first!");<br>
+                Console.ResetColor();<br>
+                return;<br>
+            }</p><br>
+<br>
+<p>ViewAllContacts();<br>
+            Console.Write($"\nEnter contact number to edit (1-{contacts.Count}): ");<br>
+            <br>
+            if (int.TryParse(Console.ReadLine(), out int index) && index >= 1 && index <= contacts.Count)<br>
+            {<br>
+                var contact = contacts[index - 1];<br>
+                Console.WriteLine("\nCurrent contact details:");<br>
+                DisplayContact(contact);<br>
+                <br>
+                Console.WriteLine("\nEnter new details (press Enter to keep current value):");<br>
+                <br>
+                Console.Write($"Name [{contact.Name}]: ");<br>
+                string newName = Console.ReadLine();<br>
+                if (!string.IsNullOrWhiteSpace(newName) && ValidateName(newName))<br>
+                    contact.Name = newName;<br>
+                <br>
+                Console.Write($"Phone [{contact.PhoneNumber}]: ");<br>
+                string newPhone = Console.ReadLine();<br>
+                if (!string.IsNullOrWhiteSpace(newPhone) && ValidatePhoneNumber(newPhone))<br>
+                    contact.PhoneNumber = newPhone;<br>
+                <br>
+                Console.Write($"Message [{contact.Message}]: ");<br>
+                string newMessage = Console.ReadLine();<br>
+                if (!string.IsNullOrWhiteSpace(newMessage) && ValidateMessage(newMessage))<br>
+                    contact.Message = newMessage;<br>
+                <br>
+                contact.LastModified = DateTime.Now;<br>
+                <br>
+                Console.ForegroundColor = ConsoleColor.Green;<br>
+                Console.WriteLine("\n✓ Contact updated successfully!");<br>
+                Console.ResetColor();<br>
+                SaveContacts();<br>
+            }<br>
+            else<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Red;<br>
+                Console.WriteLine("Invalid contact number.");<br>
+                Console.ResetColor();<br>
+            }<br>
+        }</p><br>
+<br>
+<p>static void DeleteContact()<br>
+        {<br>
+            Console.Clear();<br>
+            Console.ForegroundColor = ConsoleColor.Red;<br>
+            Console.WriteLine("=== DELETE CONTACT ===");<br>
+            Console.ResetColor();<br>
+            Console.WriteLine();</p><br>
+<br>
+<p>if (contacts.Count == 0)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Yellow;<br>
+                Console.WriteLine("No contacts to delete. Add some contacts first!");<br>
+                Console.ResetColor();<br>
+                return;<br>
+            }</p><br>
+<br>
+<p>ViewAllContacts();<br>
+            Console.Write($"\nEnter contact number to delete (1-{contacts.Count}): ");<br>
+            <br>
+            if (int.TryParse(Console.ReadLine(), out int index) && index >= 1 && index <= contacts.Count)<br>
+            {<br>
+                var contact = contacts[index - 1];<br>
+                Console.WriteLine("\nContact to delete:");<br>
+                DisplayContact(contact);<br>
+                <br>
+                Console.Write("\nAre you sure you want to delete this contact? (y/N): ");<br>
+                string confirmation = Console.ReadLine().ToLower();<br>
+                <br>
+                if (confirmation == "y" || confirmation == "yes")<br>
+                {<br>
+                    contacts.RemoveAt(index - 1);<br>
+                    Console.ForegroundColor = ConsoleColor.Green;<br>
+                    Console.WriteLine("✓ Contact deleted successfully!");<br>
+                    Console.ResetColor();<br>
+                    SaveContacts();<br>
+                }<br>
+                else<br>
+                {<br>
+                    Console.WriteLine("Deletion cancelled.");<br>
+                }<br>
+            }<br>
+            else<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Red;<br>
+                Console.WriteLine("Invalid contact number.");<br>
+                Console.ResetColor();<br>
+            }<br>
+        }</p><br>
+<br>
+<p>static void ShowStatistics()<br>
+        {<br>
+            Console.Clear();<br>
+            Console.ForegroundColor = ConsoleColor.Cyan;<br>
+            Console.WriteLine("=== CONTACT STATISTICS ===");<br>
+            Console.ResetColor();<br>
+            Console.WriteLine();</p><br>
+<br>
+<p>Console.WriteLine($"Total Contacts: {contacts.Count}");<br>
+            <br>
+            if (contacts.Count > 0)<br>
+            {<br>
+                var oldestContact = contacts.OrderBy(c => c.CreatedAt).First();<br>
+                var newestContact = contacts.OrderByDescending(c => c.CreatedAt).First();<br>
+                var recentlyModified = contacts.OrderByDescending(c => c.LastModified).First();<br>
+                <br>
+                Console.WriteLine($"Oldest Contact: {oldestContact.Name} (Created: {oldestContact.CreatedAt:MM/dd/yyyy})");<br>
+                Console.WriteLine($"Newest Contact: {newestContact.Name} (Created: {newestContact.CreatedAt:MM/dd/yyyy})");<br>
+                Console.WriteLine($"Recently Modified: {recentlyModified.Name} (Modified: {recentlyModified.LastModified:MM/dd/yyyy HH:mm})");<br>
+                <br>
+                double avgMessageLength = contacts.Average(c => c.Message.Length);<br>
+                Console.WriteLine($"Average Message Length: {avgMessageLength:F1} characters");<br>
+            }<br>
+        }</p><br>
+<br>
+<p>static void ExportContacts()<br>
+        {<br>
+            Console.Clear();<br>
+            Console.ForegroundColor = ConsoleColor.Green;<br>
+            Console.WriteLine("=== EXPORT CONTACTS ===");<br>
+            Console.ResetColor();<br>
+            Console.WriteLine();</p><br>
+<br>
+<p>if (contacts.Count == 0)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Yellow;<br>
+                Console.WriteLine("No contacts to export.");<br>
+                Console.ResetColor();<br>
+                return;<br>
+            }</p><br>
+<br>
+<p>string exportFile = $"contacts_export_{DateTime.Now:yyyyMMdd_HHmmss}.txt";<br>
+            <br>
+            try<br>
+            {<br>
+                using (var writer = new StreamWriter(exportFile))<br>
+                {<br>
+                    writer.WriteLine("CONTACT EXPORT - " + DateTime.Now.ToString("F"));<br>
+                    writer.WriteLine(new string('=', 60));<br>
+                    writer.WriteLine();<br>
+                    <br>
+                    for (int i = 0; i < contacts.Count; i++)<br>
+                    {<br>
+                        var contact = contacts[i];<br>
+                        writer.WriteLine($"Contact #{i + 1}:");<br>
+                        writer.WriteLine($"Name: {contact.Name}");<br>
+                        writer.WriteLine($"Phone: {contact.PhoneNumber}");<br>
+                        writer.WriteLine($"Message: {contact.Message}");<br>
+                        writer.WriteLine($"Created: {contact.CreatedAt:MM/dd/yyyy HH:mm}");<br>
+                        writer.WriteLine($"Modified: {contact.LastModified:MM/dd/yyyy HH:mm}");<br>
+                        writer.WriteLine(new string('-', 40));<br>
+                    }<br>
+                }<br>
+                <br>
+                Console.ForegroundColor = ConsoleColor.Green;<br>
+                Console.WriteLine($"✓ Contacts exported to: {exportFile}");<br>
+                Console.ResetColor();<br>
+            }<br>
+            catch (Exception ex)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Red;<br>
+                Console.WriteLine($"Error exporting contacts: {ex.Message}");<br>
+                Console.ResetColor();<br>
+            }<br>
+        }</p><br>
+<br>
+<p>static void DisplayContact(Contact contact)<br>
+        {<br>
+            Console.WriteLine($"Name: {contact.Name}");<br>
+            Console.WriteLine($"Phone: {contact.PhoneNumber}");<br>
+            Console.WriteLine($"Message: {contact.Message}");<br>
+            Console.WriteLine($"Created: {contact.CreatedAt:MM/dd/yyyy HH:mm}");<br>
+            Console.WriteLine($"Last Modified: {contact.LastModified:MM/dd/yyyy HH:mm}");<br>
+        }</p><br>
+<br>
+<p>static string GetValidatedInput(string prompt, Func<string, bool> validator)<br>
+        {<br>
+            string input;<br>
+            do<br>
+            {<br>
+                Console.Write(prompt);<br>
+                input = Console.ReadLine();<br>
+                <br>
+                if (!validator(input))<br>
+                {<br>
+                    Console.ForegroundColor = ConsoleColor.Red;<br>
+                    Console.WriteLine("Invalid input. Please try again.");<br>
+                    Console.ResetColor();<br>
+                }<br>
+            } while (!validator(input));<br>
+            <br>
+            return input;<br>
+        }</p><br>
+<br>
+<p>static bool ValidateName(string name)<br>
+        {<br>
+            if (string.IsNullOrWhiteSpace(name))<br>
+            {<br>
+                Console.WriteLine("Name cannot be empty.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            if (name.Length < 2)<br>
+            {<br>
+                Console.WriteLine("Name must be at least 2 characters long.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            if (name.Length > 50)<br>
+            {<br>
+                Console.WriteLine("Name cannot exceed 50 characters.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            if (!Regex.IsMatch(name, @"^[a-zA-Z\s'-]+$"))<br>
+            {<br>
+                Console.WriteLine("Name can only contain letters, spaces, hyphens, and apostrophes.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            return true;<br>
+        }</p><br>
+<br>
+<p>static bool ValidatePhoneNumber(string phoneNumber)<br>
+        {<br>
+            if (string.IsNullOrWhiteSpace(phoneNumber))<br>
+            {<br>
+                Console.WriteLine("Phone number cannot be empty.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            // Remove all non-digit characters for validation<br>
+            string digits = Regex.Replace(phoneNumber, @"[^\d]", "");<br>
+            <br>
+            if (digits.Length < 10 || digits.Length > 15)<br>
+            {<br>
+                Console.WriteLine("Phone number must contain 10-15 digits.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            // Allow common phone number formats<br>
+            if (!Regex.IsMatch(phoneNumber, @"^[\d\s\-\(\)\+\.]+$"))<br>
+            {<br>
+                Console.WriteLine("Phone number contains invalid characters.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            return true;<br>
+        }</p><br>
+<br>
+<p>static bool ValidateMessage(string message)<br>
+        {<br>
+            if (string.IsNullOrWhiteSpace(message))<br>
+            {<br>
+                Console.WriteLine("Message cannot be empty.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            if (message.Length > 500)<br>
+            {<br>
+                Console.WriteLine("Message cannot exceed 500 characters.");<br>
+                return false;<br>
+            }<br>
+            <br>
+            return true;<br>
+        }</p><br>
+<br>
+<p>static void SaveContacts()<br>
+        {<br>
+            try<br>
+            {<br>
+                string json = JsonSerializer.Serialize(contacts, new JsonSerializerOptions { WriteIndented = true });<br>
+                File.WriteAllText(dataFile, json);<br>
+            }<br>
+            catch (Exception ex)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Red;<br>
+                Console.WriteLine($"Error saving contacts: {ex.Message}");<br>
+                Console.ResetColor();<br>
+            }<br>
+        }</p><br>
+<br>
+<p>static void LoadContacts()<br>
+        {<br>
+            try<br>
+            {<br>
+                if (File.Exists(dataFile))<br>
+                {<br>
+                    string json = File.ReadAllText(dataFile);<br>
+                    contacts = JsonSerializer.Deserialize<List<Contact>>(json) ?? new List<Contact>();<br>
+                }<br>
+            }<br>
+            catch (Exception ex)<br>
+            {<br>
+                Console.ForegroundColor = ConsoleColor.Red;<br>
+                Console.WriteLine($"Error loading contacts: {ex.Message}");<br>
+                Console.ResetColor();<br>
+                contacts = new List<Contact>();<br>
+            }<br>
+        }<br>
+    }<br>
+}</div></p><br>
+<br>
+<p>#<h1>Technical Details</h1></p><br>
+<br>
+<p>##<h1>Class Structure</h1><li><strong>Contact Class</strong>: Represents individual contact objects with properties for Name, PhoneNumber, Message, CreatedAt, and LastModified timestamps</li><li><strong>Program Class</strong>: Contains all application logic including menu system, CRUD operations, validation, and file I/O</li></p><br>
+<br>
+<p>##<h1>Key Technologies Used</h1><li><strong>System.Text.Json</strong>: For JSON serialization/deserialization of contact data</li><li><strong>System.Text.RegularExpressions</strong>: For advanced input validation patterns</li><li><strong>System.Linq</strong>: For search functionality and data querying</li><li><strong>System.IO</strong>: For file operations and data persistence</li></p><br>
+<br>
+<p>##<h1>Validation Rules</h1><br>
+1. <strong>Name Validation</strong>:<br>
+   - Must be 2-50 characters long<br>
+   - Can contain letters, spaces, hyphens, and apostrophes only<br>
+   - Cannot be empty or whitespace</p><br>
+<br>
+<p>2. <strong>Phone Number Validation</strong>:<br>
+   - Must contain 10-15 digits<br>
+   - Supports common formats: (555) 123-4567, 555-123-4567, +1-555-123-4567<br>
+   - Allows digits, spaces, hyphens, parentheses, plus signs, and dots</p><br>
+<br>
+<p>3. <strong>Message Validation</strong>:<br>
+   - Cannot be empty or whitespace<br>
+   - Maximum length of 500 characters</p><br>
+<br>
+<p>##<h1>File Operations</h1><li><strong>contacts.json</strong>: Primary data storage file using JSON format</li><li><strong>contacts_export_[timestamp].txt</strong>: Export files with human-readable format</li><li>Automatic backup and error handling for data integrity</li></p><br>
+<br>
+<p>#<h1>Menu Options</h1></p><br>
+<br>
+<p>1. <strong>Add New Contact</strong>: Create new contact with validated input<br>
+2. <strong>View All Contacts</strong>: Display all stored contacts with formatting<br>
+3. <strong>Search Contacts</strong>: Find contacts by name, phone, or message content<br>
+4. <strong>Edit Contact</strong>: Modify existing contact information<br>
+5. <strong>Delete Contact</strong>: Remove contacts with confirmation prompt<br>
+6. <strong>Show Statistics</strong>: Display analytics about contact database<br>
+7. <strong>Export Contacts</strong>: Generate formatted text file export<br>
+8. <strong>Exit</strong>: Save data and close application</p><br>
+<br>
+<p>#<h1>Error Handling</h1><li>Input validation with specific error messages</li><li>File I/O error handling with graceful degradation</li><li>Data integrity protection with automatic saves</li><li>User confirmation for destructive operations</li></p><br>
+<br>
+<p>#<h1>Future Enhancement Possibilities</h1><li>Import contacts from CSV/vCard files</li><li>Category/group management for contacts</li><li>Advanced search with filters</li><li>Contact sorting options</li><li>Backup and restore functionality</li><li>Email integration</li><li>Database storage option</li><li>GUI interface using WPF or WinForms</li></p></ul></div>---<br>
+<br>
+<strong>Created Date</strong>: January 2025  <br>
+<strong>Language</strong>: C<h1>(.NET Framework/Core)  </h1><br>
+<strong>Author</strong>: Enhanced from basic console input program  <br>
+<strong>License</strong>: Open source for educational purposes</div>
+    
+    <div class="footer">
+        <p>Generated on August 13, 2025 at 10:42 AM</p>
+        <p>Contact Manager - Enhanced C# Console Application</p>
+    </div>
+</body>
+</html>
