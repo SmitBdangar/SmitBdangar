@@ -1,4 +1,4 @@
 # Hi there 👋
 
-Currently sharpening skills in: .NET ecosystem & cloud technologies
+Currently sharpening skills in: python & cloud technologies
                           
