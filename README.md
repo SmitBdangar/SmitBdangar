@@ -21,9 +21,3 @@
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer"/>
 </div>
-
-<div align="center">
-  <i>💫 "Code is like humor. When you have to explain it, it's bad." - Cory House</i>
-  <br><br>
-  <i>⭐️ From [yourusername](https://github.com/yourusername) with lots of ☕ and some 🍕</i>
-</div>
