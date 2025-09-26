@@ -18,21 +18,6 @@
 
 ---
 
-## 🎯 What I'm Up To
-
-<img align="right" alt="Anime GIF" src="https://user-images.githubusercontent.com/74038190/229223156-0cbdaba9-3128-4d8e-8719-b6b4cf741b67.gif" width="300">
-
-- 🔭 **Currently Building:** Next-gen AI-powered development tools
-- 🌱 **Learning:** Rust, WebAssembly, and Advanced System Design
-- 👯 **Open to Collaborate:** Open source projects that make developers' lives easier
-- 🎮 **Fun Projects:** Building games with Three.js and experimenting with AR/VR
-- 📚 **Reading:** Clean Architecture, System Design Interview books
-- 🎯 **2024 Goals:** Contribute to 10 major open source projects
-
-<br clear="both"/>
-
----
-
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer"/>
 </div>
