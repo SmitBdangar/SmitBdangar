@@ -33,30 +33,6 @@
 
 ---
 
-## 📈 Coding Activity
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="100">
-</div>
-
----
-
-## 💭 Random Dev Wisdom
-<div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random Dev Quote"/>
-</div>
-
----
-
-<div align="center">
-  
-  [![Profile Views](https://komarev.com/ghpvc/?username=yourusername&color=blueviolet&style=for-the-badge&label=Profile+Views)](https://github.com/yourusername)
-  [![GitHub followers](https://img.shields.io/github/followers/yourusername?logo=GitHub&style=for-the-badge&color=blue)](https://github.com/yourusername)
-  
-</div>
-
----
-
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100%">
 </div>
