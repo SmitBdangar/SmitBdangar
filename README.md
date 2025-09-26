@@ -6,7 +6,7 @@
   <img width="400" src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif"/>
 </div>
 
-# <div align="center">Hey there! I'm [Your Name] 👨‍💻</div>
+# <div align="center">Hey there! I'm Smit</div>
 
 <div align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00D4AA&center=true&vCenter=true&width=600&lines=Full+Stack+Developer+%F0%9F%9A%80;Open+Source+Enthusiast+%E2%9C%A8;Problem+Solver+%F0%9F%A7%A9;Anime+Lover+%F0%9F%98%8D;Code+Ninja+%F0%9F%A5%B7" alt="Typing SVG" />
@@ -36,20 +36,6 @@ const quickStats = {
     ☕ coffeeConsumed: "∞"
 };
 ```
-
-**🔥 Current Streak:** ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=yourusername&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D)
-
-**📊 This Week I Spent My Time On:**
-<!--START_SECTION:waka-->
-```text
-JavaScript   12 hrs 30 mins  ████████████▓░░░░  65.2%
-TypeScript    4 hrs 15 mins  ████▓░░░░░░░░░░░░░  22.1%
-Python        1 hr 45 mins   █▓░░░░░░░░░░░░░░░░   9.1%
-CSS           0 hrs 42 mins  ▓░░░░░░░░░░░░░░░░░   3.6%
-```
-<!--END_SECTION:waka-->
-
----
 
 ## 💻 Tech Arsenal
 
