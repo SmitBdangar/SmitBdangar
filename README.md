@@ -7,10 +7,10 @@
 <td width="65%" valign="top">
 
 ### 👋 Hi, I’m **Smit Dangar**
-- 💻 I’m a **Python Developer** and **All Rounder**  
-- ⚡ Love solving **problems** & building **efficient systems**  
-- 🤖 Passionate about **AI/Machine Learning** principles and development  
-- 🌱 Always learning and exploring **new technologies**  
+-  I’m a **Python Developer** and **All Rounder**  
+-  Love solving **problems** & building **efficient systems**  
+-  Passionate about **AI/Machine Learning** principles and development  
+-  Always learning and exploring **new technologies**  
 
 </td>
 <td width="45%" align="center">
