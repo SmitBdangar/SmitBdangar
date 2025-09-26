@@ -6,11 +6,11 @@
 <tr>
 <td width="60%">
 
-### 👋 Hi, I’m **Your Name**
-- 💻 I’m a **Python Developer** and **Backend Engineer**  
-- ⚡ Love solving **problems** & building **efficient systems**  
-- 🎨 Passionate about **clean code** & **craftsmanship**  
-- 🌱 Always learning and exploring **new technologies**  
+### 👋 Hi, I’m **Smit Dangar**
+-  I’m a **Python Developer** and **All Rounder**  
+-  Love solving **problems** & building **efficient systems**  
+-  Passionate about **AI/Machine Learning** principles and development.**  
+-  Always learning and exploring **new technologies**  
 
 </td>
 <td width="100%" align="center">
