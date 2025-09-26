@@ -2,20 +2,20 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,10&height=80&section=header"/>
 </div>
 
-<table>
+<table width="100%">
 <tr>
-<td width="60%">
+<td width="65%" valign="top">
 
 ### 👋 Hi, I’m **Smit Dangar**
--  I’m a **Python Developer** and **All Rounder**  
--  Love solving **problems** & building **efficient systems**  
--  Passionate about **AI/Machine Learning** principles and development.**  
--  Always learning and exploring **new technologies**  
+- 💻 I’m a **Python Developer** and **All Rounder**  
+- ⚡ Love solving **problems** & building **efficient systems**  
+- 🤖 Passionate about **AI/Machine Learning** principles and development  
+- 🌱 Always learning and exploring **new technologies**  
 
 </td>
-<td width="100%" align="center">
+<td width="45%" align="center">
 
-<img width="300" src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif"/>
+<img width="350" src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif"/>
 
 </td>
 </tr>
