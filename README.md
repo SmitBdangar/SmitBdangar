@@ -2,9 +2,24 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,10&height=80&section=header"/>
 </div>
 
-<div align="center">
-  <img width="600" src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif"/>
-</div>
+<table>
+<tr>
+<td width="60%">
+
+### 👋 Hi, I’m **Your Name**
+- 💻 I’m a **Python Developer** and **Backend Engineer**  
+- ⚡ Love solving **problems** & building **efficient systems**  
+- 🎨 Passionate about **clean code** & **craftsmanship**  
+- 🌱 Always learning and exploring **new technologies**  
+
+</td>
+<td width="40%" align="center">
+
+<img width="300" src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif"/>
+
+</td>
+</tr>
+</table>
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
