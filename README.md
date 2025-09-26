@@ -4,7 +4,7 @@
 
 <table>
 <tr>
-<td width="60%">
+<td width="100%">
 
 ### 👋 Hi, I’m **Your Name**
 - 💻 I’m a **Python Developer** and **Backend Engineer**  
