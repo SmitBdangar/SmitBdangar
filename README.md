@@ -7,13 +7,8 @@
 
 <div align="center">
 
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-CE412B?style=for-the-badge&logo=rust&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Unity](https://img.shields.io/badge/Unity-222222?style=for-the-badge&logo=unity&logoColor=white)
-![WebAssembly](https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white)
-![Avalonia](https://img.shields.io/badge/Avalonia-7B6FE8?style=for-the-badge&logo=dotnet&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![My Skills](https://go-skill-icons.vercel.app/api/icons?i=css,js,html,md,py,jquery,stackoverflow,zen,tailscale,githubpages,githubcopilot,gitea,react,git,unreal,tailwind,figma,canva,api,svelte,vb,nextjs,ts,linux,redis,tauri,mysql,sqlite,mariadb,docker,blender,obs,vscode,kubernetes,rust,golang,github,wordpress,windows,android,ubuntu,macos)
+
 
 </div>
 
